@@ -583,11 +583,11 @@
     <!-- Modal for single post view -->
     <div id="postModal" class="fixed inset-0 z-50 hidden modal-backdrop bg-black/80">
         <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="glass-morphism bg-slate-800/90 rounded-2xl border border-white/20 max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="glass-card bg-slate-800/90 rounded-3xl border border-white/20 max-w-7xl w-full max-h-[95vh] overflow-y-auto animate-scale-in">
                 <!-- Modal Header -->
-                <div class="flex items-center justify-between p-6 border-b border-white/10">
-                    <h3 id="modalTitle" class="text-2xl font-bold font-serif gradient-text"></h3>
-                    <button onclick="closeModal()" class="p-2 hover:bg-white/10 rounded-lg transition-colors duration-300">
+                <div class="flex items-center justify-between p-8 border-b border-white/10">
+                    <h3 id="modalTitle" class="text-3xl font-bold font-display gradient-text"></h3>
+                    <button onclick="closeModal()" class="p-3 hover:bg-white/10 rounded-xl transition-colors duration-300">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
@@ -595,45 +595,113 @@
                 </div>
                 
                 <!-- Modal Content -->
-                <div class="p-6">
-                    <div class="grid lg:grid-cols-2 gap-8">
+                <div class="p-8">
+                    <div class="grid lg:grid-cols-2 gap-10">
                         <!-- Image -->
                         <div class="relative">
-                            <img id="modalImage" src="" alt="" class="w-full h-auto rounded-2xl shadow-2xl">
+                            <img id="modalImage" src="" alt="" class="w-full h-auto rounded-3xl shadow-2xl">
+                            <div class="absolute top-4 right-4 flex gap-2">
+                                <button onclick="downloadImage()" class="p-2 bg-black/50 backdrop-blur-sm rounded-xl hover:bg-black/70 transition-colors duration-300">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                </button>
+                                <button onclick="fullscreenImage()" class="p-2 bg-black/50 backdrop-blur-sm rounded-xl hover:bg-black/70 transition-colors duration-300">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                         
                         <!-- Info -->
-                        <div class="space-y-6">
+                        <div class="space-y-8">
+                            <!-- Meta Info -->
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-slate-400" id="modalAuthor"></p>
+                                    <p class="text-sm text-slate-500" id="modalDate"></p>
+                                </div>
+                                <div class="flex items-center space-x-4 text-sm text-slate-400">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                        </svg>
+                                        <span id="modalLikes">0</span>
+                                    </span>
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                        </svg>
+                                        <span id="modalViews">0</span>
+                                    </span>
+                                </div>
+                            </div>
+                            
                             <!-- Prompt -->
                             <div>
-                                <h4 class="text-lg font-semibold mb-3 text-emerald-400">Prompt</h4>
-                                <p id="modalPrompt" class="text-slate-300 font-serif italic leading-relaxed bg-slate-700/30 p-4 rounded-xl border border-white/10"></p>
+                                <h4 class="text-xl font-semibold mb-4 text-cyan-400 flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                    </svg>
+                                    AI Prompt
+                                </h4>
+                                <div class="relative">
+                                    <p id="modalPrompt" class="text-slate-300 font-serif leading-relaxed bg-slate-700/30 p-6 rounded-2xl border border-white/10 text-lg"></p>
+                                    <button onclick="copyPrompt()" class="absolute top-3 right-3 p-2 hover:bg-white/10 rounded-lg transition-colors duration-300">
+                                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                             
                             <!-- Description -->
                             <div>
-                                <h4 class="text-lg font-semibold mb-3 text-emerald-400">Description</h4>
-                                <p id="modalDescription" class="text-slate-300 leading-relaxed"></p>
+                                <h4 class="text-xl font-semibold mb-4 text-emerald-400 flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+                                    </svg>
+                                    Description
+                                </h4>
+                                <p id="modalDescription" class="text-slate-300 leading-relaxed text-lg"></p>
                             </div>
                             
                             <!-- Tags -->
                             <div>
-                                <h4 class="text-lg font-semibold mb-3 text-emerald-400">Tags</h4>
+                                <h4 class="text-xl font-semibold mb-4 text-purple-400 flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                                    </svg>
+                                    Tags
+                                </h4>
                                 <div id="modalTags" class="flex flex-wrap gap-2"></div>
                             </div>
                             
                             <!-- Technical Details -->
                             <div>
-                                <h4 class="text-lg font-semibold mb-3 text-emerald-400">Technical Details</h4>
-                                <div id="modalTechnicalDetails" class="space-y-2 text-sm text-slate-400"></div>
+                                <h4 class="text-xl font-semibold mb-4 text-indigo-400 flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
+                                    Technical Details
+                                </h4>
+                                <div id="modalTechnicalDetails" class="grid grid-cols-2 gap-4 text-sm"></div>
                             </div>
                             
                             <!-- Actions -->
-                            <div class="flex gap-4 pt-4">
-                                <button onclick="copyPrompt()" class="px-6 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl transition-colors duration-300 font-medium">
+                            <div class="flex gap-4 pt-6">
+                                <button onclick="copyPrompt()" class="btn-primary px-8 py-3 rounded-xl font-semibold text-white flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
                                     Copy Prompt
                                 </button>
-                                <button onclick="sharePost()" class="px-6 py-2 border border-emerald-500/50 hover:bg-emerald-500/10 rounded-xl transition-colors duration-300 font-medium">
+                                <button onclick="sharePost()" class="btn-secondary px-8 py-3 rounded-xl font-semibold text-white flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                                    </svg>
                                     Share
                                 </button>
                             </div>
@@ -645,15 +713,49 @@
     </div>
 
     <!-- About Section -->
-    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold font-serif mb-8 gradient-text">About Promptography</h2>
-            <p class="text-xl text-slate-300 leading-relaxed mb-8">
-                Promptography is more than just a gallery—it's a bridge between human creativity and artificial intelligence. We showcase the art of prompt engineering, demonstrating how carefully crafted words can unlock extraordinary visual possibilities.
-            </p>
-            <p class="text-lg text-slate-400 leading-relaxed">
-                Each piece in our collection represents a collaboration between human imagination and AI capability, highlighting the evolving landscape of digital artistry and the power of descriptive language in the creative process.
-            </p>
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="animate-fade-in">
+                <h2 class="text-5xl md:text-6xl font-bold font-display mb-8 gradient-text">About Promptography</h2>
+                <p class="text-xl text-slate-300 leading-relaxed mb-8 max-w-3xl mx-auto">
+                    Promptography represents the intersection where human creativity meets artificial intelligence. We showcase the evolving art of prompt engineering, demonstrating how carefully crafted language can unlock extraordinary visual possibilities.
+                </p>
+                <p class="text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto mb-12">
+                    Each piece in our collection tells a story of collaboration between human imagination and AI capability, highlighting the transformative power of descriptive language in the digital creative process.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 mt-16">
+                    <div class="glass-card p-8 rounded-3xl text-center">
+                        <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-2xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-cyan-400">Creative Innovation</h3>
+                        <p class="text-slate-400">Exploring new frontiers in AI-assisted creativity and artistic expression.</p>
+                    </div>
+                    
+                    <div class="glass-card p-8 rounded-3xl text-center">
+                        <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-emerald-400">Educational Hub</h3>
+                        <p class="text-slate-400">Learning the craft of prompt engineering through real examples and techniques.</p>
+                    </div>
+                    
+                    <div class="glass-card p-8 rounded-3xl text-center">
+                        <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-purple-400">Community Driven</h3>
+                        <p class="text-slate-400">Building a vibrant community of AI artists, prompt engineers, and enthusiasts.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
