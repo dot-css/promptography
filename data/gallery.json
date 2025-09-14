@@ -1,0 +1,200 @@
+{
+  "gallery": [
+    {
+      "id": "prompt-001",
+      "title": "Floating Islands",
+      "prompt": "A serene landscape with floating islands connected by bridges of light, ethereal atmosphere, golden hour lighting, fantasy art style, detailed, cinematic, 8k resolution",
+      "description": "This piece explores the concept of impossible architecture suspended in mid-air, connected by streams of pure light. The golden hour lighting creates a magical atmosphere that transforms the surreal into something almost believable.",
+      "image": "images/floating-islands.jpg",
+      "thumbnail": "images/thumbs/floating-islands-thumb.jpg",
+      "category": "landscape",
+      "tags": ["fantasy", "ethereal", "golden hour", "architecture", "surreal"],
+      "aiModel": "midjourney",
+      "dateCreated": "2025-03-15",
+      "author": "PromptArtist42",
+      "featured": true,
+      "likes": 127,
+      "views": 1543
+    },
+    {
+      "id": "prompt-002",
+      "title": "Digital Ocean",
+      "prompt": "Ocean waves made of flowing data streams under a digital aurora, cyberpunk aesthetic, neon colors, abstract representation, holographic water, electric blue and teal colors",
+      "description": "Merging the natural beauty of ocean waves with the digital world, this artwork represents the flow of information in our connected age. The aurora serves as a bridge between the physical and digital realms.",
+      "image": "images/digital-ocean.jpg",
+      "thumbnail": "images/thumbs/digital-ocean-thumb.jpg",
+      "category": "abstract",
+      "tags": ["digital", "cyberpunk", "neon", "data", "ocean", "aurora"],
+      "aiModel": "stable-diffusion",
+      "dateCreated": "2025-03-12",
+      "author": "CyberWave",
+      "featured": false,
+      "likes": 89,
+      "views": 756
+    },
+    {
+      "id": "prompt-003",
+      "title": "Ancient Library",
+      "prompt": "Ancient library with books floating like butterflies around marble columns, magical realism, warm lighting, scholarly atmosphere, ornate architecture, parchment wings, golden dust particles",
+      "description": "Knowledge takes flight in this magical interpretation of a classical library. The floating books represent the liberation of information, while the marble columns ground the scene in classical architecture.",
+      "image": "images/ancient-library.jpg",
+      "thumbnail": "images/thumbs/ancient-library-thumb.jpg",
+      "category": "architecture",
+      "tags": ["surreal", "books", "marble", "classical", "magical realism", "warm lighting"],
+      "aiModel": "dalle3",
+      "dateCreated": "2025-03-10",
+      "author": "BookMage",
+      "featured": true,
+      "likes": 203,
+      "views": 2187
+    },
+    {
+      "id": "prompt-004",
+      "title": "Cosmic Garden",
+      "prompt": "Cosmic garden where planets grow on trees made of stardust, space fantasy, vibrant colors, dreamlike quality, nebula background, glowing fruit planets, crystalline branches",
+      "description": "This whimsical piece imagines a garden at the edge of space where celestial bodies grow like fruit on cosmic trees. It's a meditation on growth, wonder, and the infinite possibilities of the universe.",
+      "image": "images/cosmic-garden.jpg",
+      "thumbnail": "images/thumbs/cosmic-garden-thumb.jpg",
+      "category": "space",
+      "tags": ["fantasy", "cosmic", "planets", "trees", "stardust", "nebula", "dreamlike"],
+      "aiModel": "midjourney",
+      "dateCreated": "2025-03-08",
+      "author": "StarGardener",
+      "featured": false,
+      "likes": 156,
+      "views": 1302
+    },
+    {
+      "id": "prompt-005",
+      "title": "Light Ballroom",
+      "prompt": "Victorian ballroom where dancers wear masks made of light, elegant atmosphere, baroque architecture, magical lighting, flowing gowns, ornate chandeliers, golden hour through tall windows",
+      "description": "A fusion of historical elegance and magical realism, this ballroom scene captures the romance of a bygone era enhanced with supernatural elements. The light masks represent the personas we wear in social gatherings.",
+      "image": "images/light-ballroom.jpg",
+      "thumbnail": "images/thumbs/light-ballroom-thumb.jpg",
+      "category": "portrait",
+      "tags": ["vintage", "ballroom", "masks", "light", "baroque", "elegant", "magical"],
+      "aiModel": "dalle3",
+      "dateCreated": "2025-03-05",
+      "author": "VintageVisions",
+      "featured": true,
+      "likes": 178,
+      "views": 1876
+    },
+    {
+      "id": "prompt-006",
+      "title": "Mechanical Butterfly",
+      "prompt": "Mechanical butterfly with clockwork wings landing on a crystal flower, steampunk aesthetic, intricate details, macro photography style, brass and copper materials, gears visible, morning dew on crystal petals",
+      "description": "This macro-style piece explores the intersection of nature and technology. The mechanical butterfly represents adaptation and evolution, while the crystal flower suggests the preservation of beauty through artificial means.",
+      "image": "images/mechanical-butterfly.jpg",
+      "thumbnail": "images/thumbs/mechanical-butterfly-thumb.jpg",
+      "category": "macro",
+      "tags": ["steampunk", "mechanical", "butterfly", "crystal", "macro", "clockwork", "brass"],
+      "aiModel": "stable-diffusion",
+      "dateCreated": "2025-03-03",
+      "author": "GearCrafter",
+      "featured": false,
+      "likes": 134,
+      "views": 987
+    },
+    {
+      "id": "prompt-007",
+      "title": "Neon Rain City",
+      "prompt": "Futuristic city street during neon rain, cyberpunk atmosphere, reflective wet pavement, holographic advertisements, flying cars in background, purple and pink lighting, detailed urban environment",
+      "description": "A cyberpunk vision of urban life where even the rain glows with neon light. This scene captures the beauty and isolation of future cities, where technology has transformed even the most basic natural phenomena.",
+      "image": "images/neon-rain-city.jpg",
+      "thumbnail": "images/thumbs/neon-rain-city-thumb.jpg",
+      "category": "digital",
+      "tags": ["cyberpunk", "city", "neon", "rain", "futuristic", "reflections", "urban"],
+      "aiModel": "midjourney",
+      "dateCreated": "2025-03-01",
+      "author": "NeonDreamer",
+      "featured": false,
+      "likes": 92,
+      "views": 1123
+    },
+    {
+      "id": "prompt-008",
+      "title": "Crystal Forest",
+      "prompt": "Enchanted forest where trees are made of different colored crystals, magical atmosphere, soft ethereal lighting, prisms creating rainbow effects, fairy lights, mystical fog, gemstone leaves",
+      "description": "This mystical forest transforms the natural world into something crystalline and magical. Each tree represents a different gemstone, creating a landscape that's both familiar and otherworldly.",
+      "image": "images/crystal-forest.jpg",
+      "thumbnail": "images/thumbs/crystal-forest-thumb.jpg",
+      "category": "fantasy",
+      "tags": ["crystals", "forest", "magical", "rainbow", "ethereal", "gemstones", "fairy lights"],
+      "aiModel": "dalle3",
+      "dateCreated": "2025-02-28",
+      "author": "CrystalMage",
+      "featured": true,
+      "likes": 245,
+      "views": 2456
+    }
+  ],
+  "categories": [
+    {
+      "id": "landscape",
+      "name": "Landscape",
+      "description": "Natural and fantastical landscapes",
+      "count": 1
+    },
+    {
+      "id": "portrait",
+      "name": "Portrait",
+      "description": "Character-focused artwork",
+      "count": 1
+    },
+    {
+      "id": "abstract",
+      "name": "Abstract",
+      "description": "Non-representational and conceptual art",
+      "count": 1
+    },
+    {
+      "id": "fantasy",
+      "name": "Fantasy",
+      "description": "Magical and mythical themes",
+      "count": 2
+    },
+    {
+      "id": "architecture",
+      "name": "Architecture",
+      "description": "Buildings and structural designs",
+      "count": 1
+    },
+    {
+      "id": "nature",
+      "name": "Nature",
+      "description": "Natural world interpretations",
+      "count": 0
+    },
+    {
+      "id": "digital",
+      "name": "Digital Art",
+      "description": "Technology and digital themes",
+      "count": 1
+    },
+    {
+      "id": "space",
+      "name": "Space",
+      "description": "Cosmic and astronomical themes",
+      "count": 1
+    },
+    {
+      "id": "macro",
+      "name": "Macro",
+      "description": "Close-up and detailed views",
+      "count": 1
+    }
+  ],
+  "featured": [
+    "prompt-001",
+    "prompt-003",
+    "prompt-005",
+    "prompt-008"
+  ],
+  "stats": {
+    "totalArtworks": 8,
+    "totalViews": 12230,
+    "totalLikes": 1414,
+    "featuredCount": 4
+  }
+}
