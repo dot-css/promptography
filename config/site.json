@@ -1,0 +1,69 @@
+{
+  "site": {
+    "title": "Promptography",
+    "subtitle": "Where Prompts Become Photography",
+    "description": "Discover AI-generated art with meaning behind every word.",
+    "author": "Promptography Team",
+    "url": "https://promptography.example.com"
+  },
+  "theme": {
+    "primaryColor": "indigo",
+    "secondaryColor": "emerald",
+    "accentColor": "purple",
+    "darkMode": true
+  },
+  "gallery": {
+    "itemsPerPage": 12,
+    "enableSearch": true,
+    "enableFiltering": true,
+    "enableSorting": true,
+    "showStats": true,
+    "defaultSort": "newest"
+  },
+  "submission": {
+    "enabled": true,
+    "requireModeration": true,
+    "maxFileSize": "10MB",
+    "allowedFormats": ["jpg", "jpeg", "png", "webp"],
+    "requiredFields": ["title", "prompt", "category", "image"]
+  },
+  "features": {
+    "likes": true,
+    "views": true,
+    "comments": false,
+    "sharing": true,
+    "downloadable": false
+  },
+  "navigation": {
+    "logo": {
+      "text": "Promptography",
+      "style": "mixed"
+    },
+    "links": [
+      { "name": "Home", "url": "#home" },
+      { "name": "Gallery", "url": "#gallery" },
+      { "name": "About", "url": "#about" },
+      { "name": "Contact", "url": "#contact" }
+    ],
+    "showThemeToggle": true
+  },
+  "footer": {
+    "copyright": "© 2025 Promptography. Powered by imagination.",
+    "links": [
+      { "name": "About", "url": "#about" },
+      { "name": "Contact", "url": "#contact" },
+      { "name": "GitHub", "url": "#" },
+      { "name": "Netlify", "url": "#" }
+    ]
+  },
+  "animations": {
+    "enabled": true,
+    "reducedMotion": true,
+    "duration": "normal"
+  },
+  "seo": {
+    "keywords": ["AI art", "prompts", "digital art", "gallery", "artificial intelligence"],
+    "ogImage": "images/og-image.jpg",
+    "favicon": "favicon.ico"
+  }
+}

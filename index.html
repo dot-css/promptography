@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Promptography - Where Prompts Become Photography</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -124,127 +125,64 @@
     <section id="gallery" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient">Gallery</h2>
-            <p class="text-xl text-slate-400 max-w-2xl mx-auto">Explore our collection of AI-generated masterpieces</p>
+            <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-8">Explore our collection of AI-generated masterpieces</p>
+            
+            <!-- Gallery Controls -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2">
+                    <button data-filter="all" class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-semibold transition-all duration-200 hover:bg-indigo-700">
+                        All
+                    </button>
+                    <button data-filter="featured" class="px-4 py-2 bg-slate-700 text-slate-300 rounded-lg text-sm font-semibold transition-all duration-200 hover:bg-slate-600">
+                        Featured
+                    </button>
+                    <button data-filter="landscape" class="px-4 py-2 bg-slate-700 text-slate-300 rounded-lg text-sm font-semibold transition-all duration-200 hover:bg-slate-600">
+                        Landscape
+                    </button>
+                    <button data-filter="abstract" class="px-4 py-2 bg-slate-700 text-slate-300 rounded-lg text-sm font-semibold transition-all duration-200 hover:bg-slate-600">
+                        Abstract
+                    </button>
+                    <button data-filter="fantasy" class="px-4 py-2 bg-slate-700 text-slate-300 rounded-lg text-sm font-semibold transition-all duration-200 hover:bg-slate-600">
+                        Fantasy
+                    </button>
+                </div>
+                
+                <!-- Search and Sort -->
+                <div class="flex gap-3">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        placeholder="Search artworks..." 
+                        class="px-4 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                    >
+                    <select id="sort-select" class="px-4 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200">
+                        <option value="newest">Newest</option>
+                        <option value="oldest">Oldest</option>
+                        <option value="popular">Most Liked</option>
+                        <option value="views">Most Viewed</option>
+                    </select>
+                </div>
+            </div>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            <!-- Gallery Item 1 -->
-            <div class="group cursor-pointer" onclick="openModal('modal1')">
-                <div class="bg-slate-800 rounded-2xl shadow-lg overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-2xl">
-                    <div class="aspect-square bg-gradient-to-br from-purple-400 to-pink-400 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-                        <div class="absolute inset-0 flex items-center justify-center text-white text-6xl font-bold opacity-50">🎨</div>
-                    </div>
-                    <div class="p-6">
-                        <p class="font-serif italic text-sm text-slate-300 mb-3 leading-relaxed">
-                            "A serene landscape with floating islands connected by bridges of light"
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-indigo-600/20 text-indigo-400 rounded-full text-xs">Landscape</span>
-                            <span class="px-2 py-1 bg-purple-600/20 text-purple-400 rounded-full text-xs">Fantasy</span>
-                        </div>
-                        <p class="text-xs text-slate-500">March 15, 2025</p>
-                    </div>
+        <!-- Gallery Grid -->
+        <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+        
+        <!-- Gallery Stats -->
+        <div class="mt-16 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
+                <div class="glassmorphism rounded-xl p-6">
+                    <div class="text-3xl font-bold text-gradient" id="total-artworks">8</div>
+                    <div class="text-sm text-slate-400">Total Artworks</div>
                 </div>
-            </div>
-
-            <!-- Gallery Item 2 -->
-            <div class="group cursor-pointer" onclick="openModal('modal2')">
-                <div class="bg-slate-800 rounded-2xl shadow-lg overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-2xl">
-                    <div class="aspect-square bg-gradient-to-br from-emerald-400 to-blue-400 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-                        <div class="absolute inset-0 flex items-center justify-center text-white text-6xl font-bold opacity-50">🌊</div>
-                    </div>
-                    <div class="p-6">
-                        <p class="font-serif italic text-sm text-slate-300 mb-3 leading-relaxed">
-                            "Ocean waves made of flowing data streams under a digital aurora"
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-emerald-600/20 text-emerald-400 rounded-full text-xs">Abstract</span>
-                            <span class="px-2 py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs">Digital</span>
-                        </div>
-                        <p class="text-xs text-slate-500">March 12, 2025</p>
-                    </div>
+                <div class="glassmorphism rounded-xl p-6">
+                    <div class="text-3xl font-bold text-gradient" id="total-views">12.2K</div>
+                    <div class="text-sm text-slate-400">Total Views</div>
                 </div>
-            </div>
-
-            <!-- Gallery Item 3 -->
-            <div class="group cursor-pointer" onclick="openModal('modal3')">
-                <div class="bg-slate-800 rounded-2xl shadow-lg overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-2xl">
-                    <div class="aspect-square bg-gradient-to-br from-orange-400 to-red-400 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-                        <div class="absolute inset-0 flex items-center justify-center text-white text-6xl font-bold opacity-50">🏛️</div>
-                    </div>
-                    <div class="p-6">
-                        <p class="font-serif italic text-sm text-slate-300 mb-3 leading-relaxed">
-                            "Ancient library with books floating like butterflies around marble columns"
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-orange-600/20 text-orange-400 rounded-full text-xs">Architecture</span>
-                            <span class="px-2 py-1 bg-red-600/20 text-red-400 rounded-full text-xs">Surreal</span>
-                        </div>
-                        <p class="text-xs text-slate-500">March 10, 2025</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gallery Item 4 -->
-            <div class="group cursor-pointer" onclick="openModal('modal4')">
-                <div class="bg-slate-800 rounded-2xl shadow-lg overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-2xl">
-                    <div class="aspect-square bg-gradient-to-br from-indigo-400 to-cyan-400 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-                        <div class="absolute inset-0 flex items-center justify-center text-white text-6xl font-bold opacity-50">🌌</div>
-                    </div>
-                    <div class="p-6">
-                        <p class="font-serif italic text-sm text-slate-300 mb-3 leading-relaxed">
-                            "Cosmic garden where planets grow on trees made of stardust"
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-indigo-600/20 text-indigo-400 rounded-full text-xs">Space</span>
-                            <span class="px-2 py-1 bg-cyan-600/20 text-cyan-400 rounded-full text-xs">Nature</span>
-                        </div>
-                        <p class="text-xs text-slate-500">March 8, 2025</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gallery Item 5 -->
-            <div class="group cursor-pointer" onclick="openModal('modal5')">
-                <div class="bg-slate-800 rounded-2xl shadow-lg overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-2xl">
-                    <div class="aspect-square bg-gradient-to-br from-pink-400 to-violet-400 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-                        <div class="absolute inset-0 flex items-center justify-center text-white text-6xl font-bold opacity-50">🎭</div>
-                    </div>
-                    <div class="p-6">
-                        <p class="font-serif italic text-sm text-slate-300 mb-3 leading-relaxed">
-                            "Victorian ballroom where dancers wear masks made of light"
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-pink-600/20 text-pink-400 rounded-full text-xs">Portrait</span>
-                            <span class="px-2 py-1 bg-violet-600/20 text-violet-400 rounded-full text-xs">Vintage</span>
-                        </div>
-                        <p class="text-xs text-slate-500">March 5, 2025</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gallery Item 6 -->
-            <div class="group cursor-pointer" onclick="openModal('modal6')">
-                <div class="bg-slate-800 rounded-2xl shadow-lg overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-2xl">
-                    <div class="aspect-square bg-gradient-to-br from-green-400 to-teal-400 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-                        <div class="absolute inset-0 flex items-center justify-center text-white text-6xl font-bold opacity-50">🦋</div>
-                    </div>
-                    <div class="p-6">
-                        <p class="font-serif italic text-sm text-slate-300 mb-3 leading-relaxed">
-                            "Mechanical butterfly with clockwork wings landing on a crystal flower"
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-green-600/20 text-green-400 rounded-full text-xs">Steampunk</span>
-                            <span class="px-2 py-1 bg-teal-600/20 text-teal-400 rounded-full text-xs">Macro</span>
-                        </div>
-                        <p class="text-xs text-slate-500">March 3, 2025</p>
-                    </div>
+                <div class="glassmorphism rounded-xl p-6">
+                    <div class="text-3xl font-bold text-gradient" id="total-likes">1.4K</div>
+                    <div class="text-sm text-slate-400">Total Likes</div>
                 </div>
             </div>
         </div>
@@ -443,5 +381,8 @@
             });
         });
     </script>
+
+    <!-- Gallery JavaScript -->
+    <script src="js/gallery.js"></script>
 </body>
 </html>
