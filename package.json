@@ -1,0 +1,54 @@
+{
+  "name": "promptography",
+  "version": "1.0.0",
+  "description": "A sophisticated AI art gallery showcasing prompts and their generated artwork",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000 || php -S localhost:8000 || npx http-server",
+    "dev": "npx http-server -p 8000 -o",
+    "build": "echo 'No build step required for static site'",
+    "validate": "npx htmlhint index.html admin.html && npx jsonlint data/data.json",
+    "deploy:netlify": "npx netlify deploy --prod --dir .",
+    "deploy:vercel": "npx vercel --prod",
+    "optimize:images": "echo 'Run image optimization tools here'",
+    "lint:html": "npx htmlhint *.html",
+    "lint:js": "npx eslint js/*.js",
+    "lint:css": "npx stylelint css/*.css",
+    "test:lighthouse": "npx lighthouse http://localhost:8000 --output html --output-path lighthouse-report.html"
+  },
+  "keywords": [
+    "ai-art",
+    "gallery",
+    "prompts",
+    "static-site",
+    "tailwindcss",
+    "vanilla-js",
+    "responsive"
+  ],
+  "author": "Promptography Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/promptography.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/promptography/issues"
+  },
+  "homepage": "https://your-username.github.io/promptography",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "htmlhint": "^1.1.4",
+    "jsonlint": "^1.6.3",
+    "eslint": "^8.50.0",
+    "stylelint": "^15.10.0",
+    "lighthouse": "^11.0.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
