@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Promptography</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .glass-morphism {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .drop-zone {
+            border: 2px dashed #6366f1;
+            transition: all 0.3s ease;
+        }
+
+        .drop-zone.dragover {
+            border-color: #10b981;
+            background-color: rgba(16, 185, 129, 0.1);
+        }
+
+        .json-preview {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="glass-morphism bg-slate-900/80 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold font-serif gradient-text">
+                        Promptography
+                    </a>
+                    <span class="text-sm text-slate-400">Admin Interface</span>
+                </div>
+                <a href="index.html" class="text-sm font-medium hover:text-indigo-400 transition-colors duration-300">
+                    ← Back to Gallery
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold font-serif gradient-text mb-4">Content Management</h1>
+                <p class="text-xl text-slate-300">Add new artwork and prompts to the gallery</p>
+            </div>
+
+            <!-- Main Form -->
+            <div class="glass-morphism bg-slate-800/90 rounded-2xl border border-white/20 p-8">
+                <!-- Progress Indicator -->
+                <div class="flex items-center justify-center mb-8">
+                    <div class="flex space-x-4">
+                        <div class="step-indicator active flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center text-sm font-medium">1</div>
+                            <span class="ml-2 text-sm font-medium">Basic Info</span>
+                        </div>
+                        <div class="w-16 h-0.5 bg-slate-600 mt-4"></div>
+                        <div class="step-indicator flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-slate-600 text-slate-400 flex items-center justify-center text-sm font-medium">2</div>
+                            <span class="ml-2 text-sm font-medium text-slate-400">Media & Content</span>
+                        </div>
+                        <div class="w-16 h-0.5 bg-slate-600 mt-4"></div>
+                        <div class="step-indicator flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-slate-600 text-slate-400 flex items-center justify-center text-sm font-medium">3</div>
+                            <span class="ml-2 text-sm font-medium text-slate-400">Technical Details</span>
+                        </div>
+                        <div class="w-16 h-0.5 bg-slate-600 mt-4"></div>
+                        <div class="step-indicator flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-slate-600 text-slate-400 flex items-center justify-center text-sm font-medium">4</div>
+                            <span class="ml-2 text-sm font-medium text-slate-400">Preview & Export</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="adminForm">
+                    <!-- Step 1: Basic Information -->
+                    <div class="form-step active" id="step1">
+                        <h3 class="text-xl font-semibold mb-6 text-emerald-400">Basic Information</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="title" class="block text-sm font-medium mb-2">Title *</label>
+                                <input type="text" id="title" name="title" required
+                                       class="w-full px-4 py-3 bg-slate-700/50 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                       placeholder="Enter artwork title">
+                                <div class="text-xs text-slate-400 mt-1">
+                                    <span id="titleCount">0</span>/80 characters
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="author" class="block text-sm font-medium mb-2">Artist/Author *</label>
+                                <input type="text" id="author" name="author" required
+                                       class="w-full px-4 py-3 bg-slate-700/50 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                       placeholder="Artist name or username">
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <label for="category" class="block text-sm font-medium mb-2">Category *</label>
+                            <select id="category" name="category" required
+                                    class="w-full px-4 py-3 bg-slate-700/50 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                <option value="">Select a category</option>
+                                <option value="landscapes">Landscapes</option>
+                                <option value="portraits">Portraits</option>
+                                <option value="abstract">Abstract</option>
+                                <option value="architecture">Architecture</option>
+                                <option value="still-life">Still Life</option>
+                            </select>
+                        </div>
+
+                        <div class="mt-6">
+                            <label for="tags" class="block text-sm font-medium mb-2">Tags</label>
+                            <input type="text" id="tags" name="tags"
+                                   class="w-full px-4 py-3 bg-slate-700/50 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                   placeholder="Enter tags separated by commas (e.g., cyberpunk, neon, futuristic)">
+                            <div class="text-xs text-slate-400 mt-1">
+                                Separate multiple tags with commas
+                            </div>
+                        </div>
+
+                        <div class="flex items-center mt-6">
+                            <input type="checkbox" id="featured" name="featured" 
+                                   class="w-4 h-4 text-indigo-600 bg-slate-700 border-slate-600 rounded focus:ring-indigo-500">
+                            <label for="featured" class="ml-2 text-sm">Mark as featured</label>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Media & Content -->
+                    <div class="form-step" id="step2">
+                        <h3 class="text-xl font-semibold mb-6 text-emerald-400">Media & Content</h3>
+                        
+                        <!-- Image Upload -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium mb-2">Artwork Image *</label>
+                            <div id="dropZone" class="drop-zone border-2 border-dashed border-indigo-500 rounded-xl p-8 text-center cursor-pointer hover:border-emerald-500 transition-colors duration-300">
+                                <svg class="mx-auto h-12 w-12 text-slate-400 mb-4" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <p class="text-slate-300 mb-2">Drop image here or click to upload</p>
+                                <p class="text-sm text-slate-400">PNG, JPG, WebP up to 5MB</p>
+                                <input type="file" id="imageInput" accept="image/*" class="hidden">
+                            </div>
+                            <div id="imagePreview" class="mt-4 hidden">
+                                <img id="previewImg" src="" alt="Preview" class="max-w-full h-64 object-cover rounded-xl mx-auto">
+                                <button type="button" onclick="removeImage()" class="mt-2 text-red-400 hover:text-red-300 text-sm">Remove image</button>
+                            </div>
+                        </div>
+
+                        <!-- Prompt -->
+                        <div class="mb-6">
+                            <label for="prompt" class="block text-sm font-medium mb-2">AI Prompt *</label>
+                            <textarea id="prompt" name="prompt" rows="4" required
+                                      class="w-full px-4 py-3 bg-slate-700/50 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                      placeholder="Enter the detailed prompt used to generate this artwork..."></textarea>
+                            <div class="text-xs text-slate-400 mt-1">
+                                <span id="promptCount">0</span>/500 characters recommended
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="mb-6">
+                            <label for="description" class="block text-sm font-medium mb-2">Description</label>
+                            <textarea id="description" name="description" rows="3"
+                                      class="w-full px-4 py-3 bg-slate-700/50 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                      placeholder="Describe the artistic vision, inspiration, or creative process..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Technical Details -->
+                    <div class="form-step" id="step3">
+                        <h3 class="text-xl font-semibold mb-6 text-emerald-400">Technical Details</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="model" class="block text-sm font-medium mb-2">AI Model *</label>
+                                <select id="model" name="model" required
+                                        class="w-full px-4 py-3 bg-slate-700/50 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                    <option value="">Select AI model</option>
+                                    <option value="DALL-E 3">DALL-E 3</option>
+                                    <option value="DALL-E 2">DALL-E 2</option>
+                                    <option value="Midjourney v6">Midjourney v6</option>
+                                    <option value="Midjourney v5">Midjourney v5</option>
+                                    <option value="Stable Diffusion XL">Stable Diffusion XL</option>
+                                    <option value="Stable Diffusion v1.5">Stable Diffusion v1.5</option>
+                                    <option value="Adobe Firefly">Adobe Firefly</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="resolution" class="block text-sm font-medium mb-2">Resolution</label>
+                                <input type="text" id="resolution" name="resolution"
+                                       class="w-full px-4 py-3 bg-slate-700/50 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                       placeholder="e.g., 1024x1024">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6 mt-6">
+                            <div>
+                                <label for="iterations" class="block text-sm font-medium mb-2">Iterations/Steps</label>
+                                <input type="number" id="iterations" name="iterations" min="1" max="100"
+                                       class="w-full px-4 py-3 bg-slate-700/50 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                       placeholder="e.g., 50">
+                            </div>
+                            
+                            <div>
+                                <label for="style" class="block text-sm font-medium mb-2">Style/Enhancement</label>
+                                <input type="text" id="style" name="style"
+                                       class="w-full px-4 py-3 bg-slate-700/50 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                       placeholder="e.g., Photorealistic, Artistic">
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <label for="additionalParams" class="block text-sm font-medium mb-2">Additional Parameters</label>
+                            <textarea id="additionalParams" name="additionalParams" rows="3"
+                                      class="w-full px-4 py-3 bg-slate-700/50 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                      placeholder="Any additional technical parameters, settings, or notes..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Preview & Export -->
+                    <div class="form-step" id="step4">
+                        <h3 class="text-xl font-semibold mb-6 text-emerald-400">Preview & Export</h3>
+                        
+                        <!-- Preview -->
+                        <div class="mb-8">
+                            <h4 class="text-lg font-medium mb-4">Preview</h4>
+                            <div id="preview" class="glass-morphism bg-white/5 border border-white/10 rounded-xl p-6">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <div id="previewImageContainer" class="aspect-square bg-slate-700 rounded-xl flex items-center justify-center">
+                                            <span class="text-slate-400">No image selected</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h3 id="previewTitle" class="text-xl font-bold font-serif gradient-text mb-2">Untitled</h3>
+                                        <p id="previewPrompt" class="text-slate-300 italic mb-4">No prompt entered</p>
+                                        <div id="previewTags" class="flex flex-wrap gap-2 mb-4"></div>
+                                        <div id="previewDetails" class="text-sm text-slate-400"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- JSON Output -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-medium mb-4">JSON Output</h4>
+                            <div class="bg-slate-800 border border-white/20 rounded-xl p-4">
+                                <pre id="jsonOutput" class="json-preview text-sm text-slate-300 whitespace-pre-wrap max-h-64 overflow-y-auto">
+// Generated JSON will appear here
+                                </pre>
+                            </div>
+                            <button type="button" onclick="copyJSON()" class="mt-2 text-indigo-400 hover:text-indigo-300 text-sm">
+                                Copy JSON to clipboard
+                            </button>
+                        </div>
+
+                        <!-- Export Options -->
+                        <div class="flex gap-4">
+                            <button type="button" onclick="downloadJSON()" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 rounded-xl transition-colors duration-300 font-medium">
+                                Download JSON
+                            </button>
+                            <button type="button" onclick="generateImageFilename()" class="px-6 py-3 border border-indigo-500/50 hover:bg-indigo-500/10 rounded-xl transition-colors duration-300 font-medium">
+                                Generate Image Filename
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="flex justify-between mt-8 pt-6 border-t border-white/10">
+                        <button type="button" id="prevBtn" onclick="previousStep()" class="px-6 py-3 border border-slate-600 hover:border-slate-500 rounded-xl transition-colors duration-300 font-medium" style="display: none;">
+                            Previous
+                        </button>
+                        <div class="flex-1"></div>
+                        <button type="button" id="nextBtn" onclick="nextStep()" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-xl transition-colors duration-300 font-medium">
+                            Next
+                        </button>
+                        <button type="button" id="submitBtn" onclick="generateJSON()" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 rounded-xl transition-colors duration-300 font-medium" style="display: none;">
+                            Generate JSON
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
