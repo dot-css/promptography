@@ -1,227 +1,28 @@
 {
   "posts": [
     {
-      "id": "ethereal-moonscape-01",
-      "title": "Ethereal Moonscape",
-      "prompt": "A serene lunar landscape with crystalline structures reflecting aurora borealis, hyper-detailed, cinematic lighting, 8K resolution, photorealistic, ethereal atmosphere, celestial beauty, cosmic wonder",
-      "image": "https://picsum.photos/1024/1024?random=1",
-      "category": "landscapes",
-      "tags": ["space", "aurora", "crystals", "cinematic", "lunar", "celestial"],
-      "dateCreated": "2025-01-15",
-      "author": "PromptMaster",
-      "description": "This ethereal moonscape captures the serene beauty of an alien lunar surface where crystalline formations catch and reflect the dancing lights of an aurora borealis. The composition demonstrates advanced prompt engineering techniques for creating atmospheric, otherworldly environments that feel both fantastical and scientifically plausible.",
-      "technicalDetails": {
-        "model": "DALL-E 3",
-        "resolution": "1024x1024",
-        "iterations": 3,
-        "style": "Photorealistic",
-        "enhancement": "Upscaled 4x"
-      },
-      "metadata": {
-        "featured": true,
-        "likes": 156,
-        "views": 2340,
-        "downloads": 89
-      }
-    },
-    {
-      "id": "cyberpunk-portrait-02",
-      "title": "Neon Dreams",
-      "prompt": "Cyberpunk portrait of a mysterious figure with glowing neon tattoos, rain-soaked streets reflection, dramatic lighting, futuristic cityscape background, high contrast, moody atmosphere, 4K quality, cinematic composition",
-      "image": "https://picsum.photos/1024/1024?random=2",
-      "category": "portraits",
-      "tags": ["cyberpunk", "neon", "futuristic", "portrait", "dramatic", "urban"],
-      "dateCreated": "2025-01-14",
-      "author": "DigitalVisionary",
-      "description": "A striking cyberpunk portrait that exemplifies the genre's signature aesthetic. The subject's bioluminescent tattoos tell a story of technological integration with the human form, while the rain-soaked urban environment creates a perfect backdrop for this vision of the future.",
-      "technicalDetails": {
-        "model": "Midjourney v6",
-        "resolution": "1024x1024",
-        "iterations": 5,
-        "style": "Cyberpunk",
-        "aspect": "Portrait"
-      },
-      "metadata": {
-        "featured": true,
-        "likes": 203,
-        "views": 3120,
-        "downloads": 134
-      }
-    },
-    {
-      "id": "abstract-symphony-03",
-      "title": "Chromatic Symphony",
-      "prompt": "Abstract composition inspired by classical music, flowing geometric shapes, vibrant color gradients, dynamic movement, mathematical precision, artistic chaos, digital art, contemporary style, high resolution",
-      "image": "https://picsum.photos/1024/1024?random=3",
-      "category": "abstract",
-      "tags": ["abstract", "music", "geometric", "colorful", "dynamic", "contemporary"],
-      "dateCreated": "2025-01-13",
-      "author": "AbstractArtist",
-      "description": "This abstract piece translates the emotional journey of a classical symphony into visual form. Each geometric element represents different instruments and musical phrases, creating a harmonious composition that bridges the gap between auditory and visual art.",
-      "technicalDetails": {
-        "model": "Stable Diffusion XL",
-        "resolution": "1024x1024",
-        "iterations": 7,
-        "style": "Abstract Contemporary",
-        "sampler": "DPM++ 2M Karras"
-      },
-      "metadata": {
-        "featured": false,
-        "likes": 98,
-        "views": 1890,
-        "downloads": 67
-      }
-    },
-    {
-      "id": "neo-gothic-cathedral-04",
-      "title": "Neo-Gothic Spires",
-      "prompt": "Futuristic neo-gothic cathedral with bioluminescent stained glass, soaring spires touching clouds, dramatic perspective, golden hour lighting, architectural marvel, spiritual atmosphere, photorealistic detail, epic scale",
-      "image": "https://picsum.photos/1024/1024?random=4",
-      "category": "architecture",
-      "tags": ["gothic", "cathedral", "futuristic", "architectural", "spiritual", "dramatic"],
-      "dateCreated": "2025-01-12",
-      "author": "ArchitecturalDreamer",
-      "description": "A stunning reimagining of gothic architecture for the future, where traditional design principles meet advanced biotechnology. The bioluminescent elements in the stained glass create an otherworldly glow that transforms the spiritual experience of cathedral architecture.",
-      "technicalDetails": {
-        "model": "DALL-E 3",
-        "resolution": "1024x1024",
-        "iterations": 4,
-        "style": "Architectural Visualization",
-        "lighting": "Golden Hour"
-      },
-      "metadata": {
-        "featured": true,
-        "likes": 267,
-        "views": 4230,
-        "downloads": 189
-      }
-    },
-    {
-      "id": "steampunk-inventor-05",
-      "title": "The Clockwork Inventor",
-      "prompt": "Steampunk inventor in cluttered workshop, brass goggles, mechanical arm prosthetic, vintage laboratory equipment, warm amber lighting, intricate details, leather apron, steam and gears, Victorian aesthetic",
-      "image": "https://picsum.photos/1024/1024?random=5",
-      "category": "portraits",
-      "tags": ["steampunk", "inventor", "mechanical", "vintage", "brass", "victorian"],
-      "dateCreated": "2025-01-11",
-      "author": "SteamCraftsman",
-      "description": "Step into the workshop of a brilliant steampunk inventor, where Victorian elegance meets mechanical innovation. Every brass fitting and gear tells a story of ingenuity and craftsmanship in this richly detailed character study.",
-      "technicalDetails": {
-        "model": "Midjourney v6",
-        "resolution": "1024x1024",
-        "iterations": 6,
-        "style": "Steampunk",
-        "mood": "Warm Amber"
-      },
-      "metadata": {
-        "featured": false,
-        "likes": 145,
-        "views": 2650,
-        "downloads": 98
-      }
-    },
-    {
-      "id": "digital-forest-06",
-      "title": "Binary Forest",
-      "prompt": "Digital forest where trees are made of flowing code, binary streams as leaves, glowing data pathways, cybernetic nature, emerald green matrix aesthetic, technological organic fusion, high detail, mystical atmosphere",
-      "image": "https://picsum.photos/1024/1024?random=6",
-      "category": "landscapes",
-      "tags": ["digital", "forest", "code", "binary", "cybernetic", "matrix"],
-      "dateCreated": "2025-01-10",
-      "author": "CodeNaturalist",
-      "description": "A conceptual landscape that visualizes the intersection of nature and technology. This digital forest represents the organic growth patterns found in both natural ecosystems and computer networks, creating a poetic interpretation of our digital age.",
-      "technicalDetails": {
-        "model": "Stable Diffusion XL",
-        "resolution": "1024x1024",
-        "iterations": 8,
-        "style": "Digital Conceptual",
-        "color": "Matrix Green"
-      },
-      "metadata": {
-        "featured": false,
-        "likes": 112,
-        "views": 1980,
-        "downloads": 76
-      }
-    },
-    {
-      "id": "floating-city-07",
-      "title": "Aeropolis",
-      "prompt": "Massive floating city in the clouds, steampunk airships, cascading waterfalls from sky islands, golden sunset, magical realism, fantasy architecture, aerial perspective, majestic scale, detailed cityscape",
-      "image": "https://picsum.photos/1024/1024?random=7",
-      "category": "architecture",
-      "tags": ["floating", "city", "fantasy", "airships", "clouds", "magical"],
-      "dateCreated": "2025-01-09",
-      "author": "SkyArchitect",
-      "description": "Aeropolis represents the ultimate expression of human ambition and engineering prowess. This floating metropolis showcases how fantasy architecture can inspire real-world innovations in urban planning and sustainable city design.",
-      "technicalDetails": {
-        "model": "DALL-E 3",
-        "resolution": "1024x1024",
-        "iterations": 5,
-        "style": "Fantasy Architecture",
-        "perspective": "Aerial View"
-      },
-      "metadata": {
-        "featured": true,
-        "likes": 334,
-        "views": 5670,
-        "downloads": 245
-      }
-    },
-    {
-      "id": "quantum-particles-08",
-      "title": "Quantum Entanglement",
-      "prompt": "Abstract visualization of quantum particles, interconnected energy fields, swirling cosmic patterns, electric blue and purple gradients, scientific accuracy meets artistic interpretation, particle physics aesthetic, high energy",
-      "image": "https://picsum.photos/1024/1024?random=8",
-      "category": "abstract",
-      "tags": ["quantum", "particles", "physics", "energy", "cosmic", "scientific"],
-      "dateCreated": "2025-01-08",
-      "author": "QuantumVisualist",
-      "description": "This abstract piece attempts to visualize the invisible world of quantum mechanics, where particles exist in multiple states simultaneously. The interconnected patterns represent the mysterious phenomenon of quantum entanglement that defies our classical understanding of reality.",
-      "technicalDetails": {
-        "model": "Midjourney v6",
-        "resolution": "1024x1024",
-        "iterations": 9,
-        "style": "Scientific Abstract",
-        "palette": "Electric Blue Purple"
-      },
-      "metadata": {
-        "featured": false,
-        "likes": 87,
-        "views": 1456,
-        "downloads": 54
-      }
-    }
-  ],
-  "categories": [
-    {
-      "name": "landscapes",
-      "displayName": "Landscapes",
-      "description": "Natural and fantastical environments",
-      "color": "emerald"
-    },
-    {
-      "name": "portraits",
-      "displayName": "Portraits", 
-      "description": "Character studies and artistic interpretations",
-      "color": "indigo"
-    },
-    {
-      "name": "abstract",
-      "displayName": "Abstract",
-      "description": "Conceptual and experimental visual explorations",
-      "color": "purple"
-    },
-    {
-      "name": "architecture",
-      "displayName": "Architecture",
-      "description": "Futuristic and historical structural designs",
-      "color": "blue"
-    }
-  ],
-  "metadata": {
-    "totalPosts": 8,
-    "lastUpdated": "2025-01-15T10:30:00Z",
-    "version": "1.0"
-  }
+        "id": "bmw-prompt-photography-64o59e",
+        "title": "BMW Prompt Photography",
+        "prompt": "Ultra-photorealistic overhead cinematic shot of a man leaning with quiet confidence against the hood of a pristine black BMW M3 GTR parked on a rain-dampened urban street. He is dressed in a tailored matte-black suit with a crisp white shirt, top button undone. His left hand is casually tucked into his pocket, while his right hand holds a lit cigarette, smoke curling upward in fine wisps that glow faintly in the dim streetlight.\n\n\n\nAround him, the street is alive with chaos: motion-blurred crowds of people running in different directions, headlights of cars streaking into glowing trails, reflections shimmering on wet asphalt. The man remains perfectly still and sharply focused, a stark contrast to the urgency of the background.\n\n\n\nLighting is gloomy and cinematic, with dramatic contrast—subtle film grain texture, deep shadows, and soft highlights evoking the look of vintage 35mm film. Shallow depth of field isolates the subject in crisp clarity while the environment dissolves into artistic blur. Fine details include raindrops on the car’s polished surface, glowing cigarette ember, and faint neon reflections from nearby storefronts.\n\n\n\nShot composition emphasizes mood and atmosphere: symmetrical overhead framing, 9:16 aspect ratio for vertical cinematic format, 8K resolution, hyper-real textures, and atmospheric realism worthy of a movie poster.",
+        "image": "images/bmw-prompt-photography-64o59e.png",
+        "category": "portraits",
+        "tags": [
+            "Photography"
+        ],
+        "dateCreated": "2025-09-14",
+        "author": "Saqib Shoaib",
+        "description": "Ultra-photorealistic overhead cinematic shot of a man leaning with quiet confidence against the hood of a pristine black BMW M3 GTR parked on a rain-dampened urban street. He is dressed in a tailored matte-black suit with a crisp white shirt, top button undone. His left hand is casually tucked into his pocket, while his right hand holds a lit cigarette, smoke curling upward in fine wisps that glow faintly in the dim streetlight.\n\n\n\nAround him, the street is alive with chaos: motion-blurred crowds of people running in different directions, headlights of cars streaking into glowing trails, reflections shimmering on wet asphalt. The man remains perfectly still and sharply focused, a stark contrast to the urgency of the background.\n\n\n\nLighting is gloomy and cinematic, with dramatic contrast—subtle film grain texture, deep shadows, and soft highlights evoking the look of vintage 35mm film. Shallow depth of field isolates the subject in crisp clarity while the environment dissolves into artistic blur. Fine details include raindrops on the car’s polished surface, glowing cigarette ember, and faint neon reflections from nearby storefronts.\n\n\n\nShot composition emphasizes mood and atmosphere: symmetrical overhead framing, 9:16 aspect ratio for vertical cinematic format, 8K resolution, hyper-real textures, and atmospheric realism worthy of a movie poster.",
+        "technicalDetails": {
+            "model": "Stable Diffusion v1.5",
+            "resolution": "1024x1024",
+            "iterations": 1
+        },
+        "metadata": {
+            "featured": true,
+            "likes": 0,
+            "views": 0,
+            "downloads": 0
+        }
+        }
+    ]
 }
